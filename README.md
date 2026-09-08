@@ -1,12 +1,25 @@
-# Job-Sift
+# Winnower
 
-AI agent (Strands Agents SDK) that runs the repetitive end of a job hunt end to end:
-scan job boards, filter to your fit rules, shortlist with reasons, draft tailored
-cover letters, track applications, and ping follow-ups. Built for the
-[Agents for Humans](https://agentsforhumans.devpost.com/) hackathon (Professional Agents track).
+> It keeps the grain. It blows away the chaff.
 
-The author runs a version of this pipeline every day as his own job-hunt copilot,
-powered by Strands Agents inside Hermes. This repo is the productized agent.
+Winnower is an AI agent (Strands Agents SDK) that separates the real job fits
+from the chaff. It runs the repetitive end of a job hunt end to end: scans
+boards, filters against your fit rules, shortlists with reasons, drafts
+tailored cover letters, tracks applications, and pings follow-ups. Quiet in
+the background, present only when a decision matters.
+
+Built for the [Agents for Humans](https://agentsforhumans.devpost.com/)
+hackathon (Professional Agents track). The author runs a version of this
+pipeline every day as his own job-hunt copilot; this repo is the productized
+agent.
+
+## Why "Winnower"
+
+Winnowing is the old craft of tossing grain into the wind so the breeze
+carries away the chaff and the good grain falls back to the winnower's hand.
+That is exactly what a job-hunt copilot does: the listings are the harvest,
+the ghost postings and wrong-fit roles are the chaff, and the shortlist is
+the grain worth keeping.
 
 ## What it does
 
@@ -18,7 +31,7 @@ job boards -> scan tool -> fit filter -> shortlist (LLM ranked, with reasons)
 Three Strands agents, one pipeline:
 
 1. **Scout agent** - deterministic tools fetch and normalize rows from public
-   job APIs (arbeitnow, etc). No LLM guesses in the data layer.
+   job APIs (Remotive, arbeitnow is dead). No LLM guesses in the data layer.
 2. **Sifter agent** - applies fit rules (entry level, remote first, no
    enrollment gates, English) and ranks candidates with reasons.
 3. **Drafter agent** - writes tailored cover letters from a template and
@@ -47,7 +60,7 @@ until the user confirms. No apply-spam bots here.
 python -m venv .venv && source .venv/bin/activate
 pip install 'strands-agents[litellm]' strands-agents-tools requests
 cp .env.example .env   # set DEEPSEEK_API_KEY or OPENROUTER_API_KEY
-python -m src.jobsift.agent --demo
+python -m src.winnower.agent --demo
 ```
 
 ## Model

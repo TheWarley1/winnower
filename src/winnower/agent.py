@@ -1,8 +1,8 @@
-"""Job-Sift agent: wire Strands agents to the job-hunt pipeline.
+"""Winnower agent: separate the real fits from the chaff.
 
 Usage:
-    python -m src.jobsift.agent --demo        # run the scout + sifter once
-    python -m src.jobsift.agent --scan-only   # just fetch and normalize rows
+    python -m src.winnower.agent --demo        # run the scout + sifter once
+    python -m src.winnower.agent --scan-only   # just fetch and normalize rows
 
 Model: DeepSeek via LiteLLM by default (DEEPSEEK_API_KEY), falls back to
 OpenRouter (OPENROUTER_API_KEY). Override with JOB_SIFT_MODEL.
@@ -15,8 +15,8 @@ import sys
 from strands import Agent, tool
 from strands.models.litellm import LiteLLMModel
 
-from jobsift.rules import CV_FACTS, FIT_RULES
-from jobsift.tools.scan import normalize_rows, rank_by_keywords, scan_remotive
+from winnower.rules import CV_FACTS, FIT_RULES
+from winnower.tools.scan import normalize_rows, rank_by_keywords, scan_remotive
 
 
 def _load_key(name: str) -> str | None:

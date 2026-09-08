@@ -3,9 +3,9 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "job-sift"
+name = "winnower"
 version = "0.1.0"
-description = "AI agent (Strands Agents SDK) that automates the repetitive end of a job hunt"
+description = "AI agent (Strands Agents SDK) that separates the real job fits from the chaff"
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
@@ -16,4 +16,4 @@ dependencies = [
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/jobsift"]
+packages = ["src/winnower"]
